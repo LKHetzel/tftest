@@ -36,3 +36,12 @@ module "worker" {
     workerserver_subnet_id = module.network.workerserver_subnet_id
 }
 
+module "aurora" {
+    source = "./modules/functional/aurora/"
+    vpc_id = module.network.vpcid
+    aurora_sg = module.network.aurora_sg
+    mysql_user = var.mysql_user
+    aurora_cluster_name = var.aurora_cluster_name
+    aurora_db_name = var.aurora_db_name
+    appserver_subnet_id = module.network.appserver_subnet_id
+}

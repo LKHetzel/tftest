@@ -24,13 +24,13 @@ resource "aws_instance" "appservers" {
 security_groups = [ var.appserver_sg ]
   key_name = var.key_pair
   user_data = <<EOF
-	#! /bin/bash
-        sudo apt-get update
-		sudo apt-get install -y apache2
-		sudo systemctl start apache2
-		sudo systemctl enable apache2
-		echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
-	EOF
+#! /bin/bash
+sudo apt-get update
+sudo apt-get install -y apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2
+echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
+EOF
 
   tags = {
     Name = "AppServer-${count.index}"
