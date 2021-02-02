@@ -112,47 +112,23 @@ resource "aws_network_acl" "appserver_acl" {
       Name = "AppServer ACL"
   }
   
-  # Allow ingress tcp/22
   ingress {
-      protocol      = "tcp"
-      rule_no       = 100
-      action        = "allow"
-      cidr_block    = aws_subnet.appserver_subnet.cidr_block 
-      from_port     = 22
-      to_port       = 22
+    protocol   = -1
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = aws_vpc.systemvpc.cidr_block
+    from_port  = 0
+    to_port    = 0
   }
-  ingress {
-      protocol      = "tcp"
-      rule_no       = 101
-      action        = "allow"
-      cidr_block    = "0.0.0.0/0"
-      from_port     = 22
-      to_port       = 22
-  }
-  ingress {
-      protocol      = "tcp"
-      rule_no       = 200
-      action        = "allow"
-      cidr_block    = aws_subnet.appserver_subnet.cidr_block 
-      from_port     = 80
-      to_port       = 80
-  }
+
   egress {
-      protocol      = "tcp"
-      rule_no       = 104
-      action        = "allow"
-      cidr_block    = "0.0.0.0/0"
-      from_port     = 22
-      to_port       = 22
-  }    
-    egress {
-      protocol      = "tcp"
-      rule_no       = 105
-      action        = "allow"
-      cidr_block    = "0.0.0.0/0"
-      from_port     = 80
-      to_port       = 80
-  }  
+    protocol   = -1
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 0
+  }
 }
 
 # WorkerServer SG
@@ -184,12 +160,21 @@ resource "aws_network_acl" "workerserver_acl" {
   
   # Allow ingress tcp/22
   ingress {
-      protocol      = "tcp"
-      rule_no       = 100
-      action        = "allow"
-      cidr_block    = aws_subnet.workerserver_subnet.cidr_block 
-      from_port     = 22
-      to_port       = 22
+    protocol   = -1
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = aws_vpc.systemvpc.cidr_block
+    from_port  = 0
+    to_port    = 0
+  }
+
+  egress {
+    protocol   = -1
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 0
   }
 }
 

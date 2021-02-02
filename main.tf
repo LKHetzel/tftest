@@ -36,8 +36,3 @@ module "worker" {
     workerserver_subnet_id = module.network.workerserver_subnet_id
 }
 
-module "auroradb" {
-    source = "./modules/functional/aurora"
-    vpc_id = module.network.vpcid
-    aurora_sg = module.network.aurora_sg
-}
