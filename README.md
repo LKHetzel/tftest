@@ -2,7 +2,7 @@
 Terraform Take Home
 
 # Structure
-├── README.md // This document
+```├── README.md // This document
 ├── app // Contains Application Server Cluster terraform
 │   └── cluster.tf
 ├── functional // Specialized AWS Products
@@ -13,8 +13,8 @@ Terraform Take Home
 ├── network // Base Networking - SG, Subnets, NAT GW, etc
 │   └── main.tf
 ├── provider.tf // AWS Provider
-├── terraform.tfvars // **Make this file based on tfvars.example**
+├── terraform.tfvars //
 ├── variables.tf // Variable Definition
 ├── versions.tf // Project Versioning.
 └── worker // Contains Worker Server Cluster terraform
-    └── cluster.tf
+    └── cluster.tf```
