@@ -15,5 +15,5 @@ resource "aws_rds_cluster" "cluster" {
   master_password        = var.mysql_pass
   vpc_security_group_ids = [ var.aurora_sg ]
   skip_final_snapshot    = true
-  db_subnet_group_name   = [ var.appserver_subnet_id ]
+  db_subnet_group_name   = var.appserver_subnet_id
 }

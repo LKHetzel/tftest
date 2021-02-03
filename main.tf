@@ -45,3 +45,13 @@ module "aurora" {
     aurora_db_name = var.aurora_db_name
     appserver_subnet_id = module.network.appserver_subnet_id
 }
+
+module "memcached" {
+    source = "./modules/functional/memcached"
+    appserver_subnet_id = module.network.appserver_subnet_id
+}
+
+module "redis" {
+    source = "./modules/functional/redis"
+    
+}

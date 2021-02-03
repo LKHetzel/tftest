@@ -20,10 +20,6 @@ variable "key_path" {
   type = string
 }
 
-variable "appserver_subnet_id" {
-    type = string
-}
-
 # Aurora DB Stuff
 
 variable "mysql_user" {
