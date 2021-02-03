@@ -2,19 +2,38 @@
 Terraform Take Home
 
 # Structure
-```├── README.md // This document
-├── app // Contains Application Server Cluster terraform
-│   └── cluster.tf
-├── functional // Specialized AWS Products
-│   ├── auroradb.tf // Aurora DB
-│   ├── memcached.tf // Memcached Elasticache
-│   └── redis.tf // Redis Elasticache
-├── main.tf // Main Terraform job
-├── network // Base Networking - SG, Subnets, NAT GW, etc
-│   └── main.tf
-├── provider.tf // AWS Provider
-├── terraform.tfvars //
-├── variables.tf // Variable Definition
-├── versions.tf // Project Versioning.
-└── worker // Contains Worker Server Cluster terraform
-    └── cluster.tf```
+```.
+├── README.md
+├── certificates // not committed
+│   ├── elb.crt
+│   └── elb.key
+├── main.tf
+├── modules
+│   ├── app
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── terraform.tfvars
+│   │   └── variables.tf
+│   ├── functional
+│   │   ├── aurora
+│   │   │   ├── main.tf
+│   │   │   └── variables.tf
+│   │   ├── memcached
+│   │   │   ├── main.tf
+│   │   │   └── variables.tf
+│   │   └── redis
+│   │       └── main.tf
+│   ├── network
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── terraform.tfvars
+│   │   └── variables.tf
+│   └── worker
+│       ├── main.tf
+│       ├── terraform.tfvars
+│       └── variables.tf
+├── terraform.tfstate
+├── terraform.tfstate.backup
+├── terraform.tfvars
+├── variables.tf
+└── versions.tf
